@@ -1,1 +1,1 @@
-# blockchain-registry
+# Blockchain registry
