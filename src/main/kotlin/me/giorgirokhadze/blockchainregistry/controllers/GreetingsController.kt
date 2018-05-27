@@ -10,12 +10,12 @@ private const val TEMPLATE = "Hello, %s!"
 
 @RestController
 class GreetingController {
+
 	private val counter = AtomicLong()
 
 	@RequestMapping("/greeting")
 	fun greeting(
-		@RequestParam(value = "name", defaultValue = "World")
-		name: String
+		@RequestParam(value = "name", defaultValue = "World") name: String
 	) = Greeting(
 		counter.incrementAndGet(),
 		String.format(TEMPLATE, name)

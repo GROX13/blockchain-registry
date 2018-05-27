@@ -10,7 +10,6 @@ buildscript {
 		classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
 		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
 		classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
-		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
 	}
 }
 
@@ -28,7 +27,7 @@ sourceCompatibility = 1.8
 
 bootJar {
 	baseName = 'blockchain-registry'
-	version = '0.0.1-SNAPSHOT'
+	version = version
 }
 
 repositories {
@@ -41,6 +40,7 @@ compileKotlin {
 		jvmTarget = "1.8"
 	}
 }
+
 compileTestKotlin {
 	kotlinOptions {
 		freeCompilerArgs = ["-Xjsr305=strict"]
