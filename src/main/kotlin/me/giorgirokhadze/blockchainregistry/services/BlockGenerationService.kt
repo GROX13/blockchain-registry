@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service
 import java.time.LocalDateTime
 
 @Service
-class BlockGenerationService(val hashingService: BlockHashingService) {
+class BlockGenerationService(private val hashingService: BlockHashingService) {
 
 	fun createGenesisBlock() =
 		Block(0L, LocalDateTime.now(), "Genesis Block", "0", "0")

@@ -1,18 +1,27 @@
 package me.giorgirokhadze.blockchainregistry
 
+import me.giorgirokhadze.blockchainregistry.services.BlockGenerationService
+import me.giorgirokhadze.blockchainregistry.services.BlockHashingService
+import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.springframework.boot.context.properties.EnableConfigurationProperties
-import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.junit4.SpringRunner
 
-@SpringBootTest
-@RunWith(SpringRunner::class)
-@EnableConfigurationProperties
 class BlockchainGenerationServiceTest {
+
+	private lateinit var generationService: BlockGenerationService
+
+	@Before
+	fun setUp() {
+		generationService = BlockGenerationService(BlockHashingService())
+	}
 
 	@Test
 	fun generateBlocks() {
+		var lastBlock = generationService.createGenesisBlock()
+		for (i in 1..10) {
+			println(lastBlock)
+			lastBlock = generationService.nextBlock(lastBlock, "Hey! I'm block $i")
+		}
+		println(lastBlock)
 	}
 
 }
