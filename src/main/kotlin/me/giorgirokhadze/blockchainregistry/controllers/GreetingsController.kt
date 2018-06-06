@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import java.util.concurrent.atomic.AtomicLong
 
-private const val TEMPLATE = "Hello, %s!"
-
 @RestController
 class GreetingController {
 
@@ -18,6 +16,6 @@ class GreetingController {
 		@RequestParam(value = "name", defaultValue = "World") name: String
 	) = Greeting(
 		counter.incrementAndGet(),
-		String.format(TEMPLATE, name)
+		String.format("Hello, %s!", name)
 	)
 }
