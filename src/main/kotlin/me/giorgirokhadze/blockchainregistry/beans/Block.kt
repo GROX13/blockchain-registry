@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 data class Block(
 	val index: Long,
 	val timestamp: LocalDateTime,
-	val data: String,
+	val data: Data,
 	val previousHash: String,
 	val hash: String
 )

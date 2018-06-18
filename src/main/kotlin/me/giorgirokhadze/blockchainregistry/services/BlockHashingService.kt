@@ -1,5 +1,7 @@
 package me.giorgirokhadze.blockchainregistry.services
 
+import me.giorgirokhadze.blockchainregistry.beans.Block
+import me.giorgirokhadze.blockchainregistry.beans.Data
 import org.springframework.stereotype.Service
 import java.security.MessageDigest
 import java.time.LocalDateTime
@@ -22,5 +24,8 @@ class BlockHashingService {
 					.toByteArray()
 			)
 			.fold("", { str, it -> str + "%02x".format(it) })
+
+	fun newBlock(index: Long, timestamp: LocalDateTime, data: Data, previousHash: String): Block =
+		Block(index, timestamp, data, previousHash, hashBlock(index, timestamp, data.toString(), previousHash))
 
 }

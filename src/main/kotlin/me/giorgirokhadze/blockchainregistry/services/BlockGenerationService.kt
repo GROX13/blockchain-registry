@@ -1,6 +1,7 @@
 package me.giorgirokhadze.blockchainregistry.services
 
 import me.giorgirokhadze.blockchainregistry.beans.Block
+import me.giorgirokhadze.blockchainregistry.beans.Data
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
 
@@ -8,9 +9,9 @@ import java.time.LocalDateTime
 class BlockGenerationService(private val hashingService: BlockHashingService) {
 
 	fun createGenesisBlock() =
-		Block(0L, LocalDateTime.now(), "Genesis Block", "0", "0")
+		Block(0L, LocalDateTime.now(), Data(0, mutableListOf()), "0", "0")
 
-	fun nextBlock(lastBlock: Block, data: String): Block {
+	fun nextBlock(lastBlock: Block, data: Data): Block {
 		val index = lastBlock.index + 1
 		val timestamp = LocalDateTime.now()
 		val previousHash = lastBlock.hash
@@ -18,7 +19,7 @@ class BlockGenerationService(private val hashingService: BlockHashingService) {
 			index, timestamp, data, previousHash, hashingService.hashBlock(
 				index = index,
 				timestamp = timestamp,
-				data = data,
+				data = data.toString(),
 				previousHash = previousHash
 			)
 		)
