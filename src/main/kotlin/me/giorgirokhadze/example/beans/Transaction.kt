@@ -1,4 +1,4 @@
-package me.giorgirokhadze.blockchainregistry.beans
+package me.giorgirokhadze.example.beans
 
 import java.math.BigDecimal
 

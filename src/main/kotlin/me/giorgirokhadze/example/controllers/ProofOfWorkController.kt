@@ -1,10 +1,10 @@
-package me.giorgirokhadze.blockchainregistry.controllers
+package me.giorgirokhadze.example.controllers
 
-import me.giorgirokhadze.blockchainregistry.beans.Block
-import me.giorgirokhadze.blockchainregistry.beans.Data
-import me.giorgirokhadze.blockchainregistry.beans.Transaction
-import me.giorgirokhadze.blockchainregistry.services.BlockGenerationService
-import me.giorgirokhadze.blockchainregistry.services.BlockHashingService
+import me.giorgirokhadze.example.beans.Block
+import me.giorgirokhadze.example.beans.Data
+import me.giorgirokhadze.example.beans.Transaction
+import me.giorgirokhadze.example.services.BlockGenerationService
+import me.giorgirokhadze.example.services.BlockHashingService
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.time.LocalDateTime

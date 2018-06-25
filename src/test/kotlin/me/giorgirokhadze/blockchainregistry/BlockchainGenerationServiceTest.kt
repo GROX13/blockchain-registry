@@ -1,8 +1,8 @@
 package me.giorgirokhadze.blockchainregistry
 
-import me.giorgirokhadze.blockchainregistry.beans.Data
-import me.giorgirokhadze.blockchainregistry.services.BlockGenerationService
-import me.giorgirokhadze.blockchainregistry.services.BlockHashingService
+import me.giorgirokhadze.example.beans.Data
+import me.giorgirokhadze.example.services.BlockGenerationService
+import me.giorgirokhadze.example.services.BlockHashingService
 import org.junit.Before
 import org.junit.Test
 

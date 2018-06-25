@@ -1,7 +1,7 @@
-package me.giorgirokhadze.blockchainregistry.services
+package me.giorgirokhadze.example.services
 
-import me.giorgirokhadze.blockchainregistry.beans.Block
-import me.giorgirokhadze.blockchainregistry.beans.Data
+import me.giorgirokhadze.example.beans.Block
+import me.giorgirokhadze.example.beans.Data
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
 
