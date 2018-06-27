@@ -1,6 +1,8 @@
 package me.giorgirokhadze.blockchainregistry
 
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestMethod.POST
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
@@ -9,8 +11,8 @@ class OwnerController(
 	private val ownerRepository: OwnerRepository
 ) {
 
-	@RequestMapping("/create")
-	fun createOwner(owner: OwnerBean) =
+	@RequestMapping(value = ["/create"], method = [POST])
+	fun createOwner(@RequestBody owner: OwnerBean) =
 		ownerRepository
 			.save(owner.toEntity())
 			.toBean()
@@ -20,13 +22,13 @@ class OwnerController(
 		ownerRepository.findAll().map { it.toBean() }.toList()
 
 	private fun OwnerBean.toEntity() = Owner(
-		id = id,
-		personalId = personalId,
+		id = null,
+		personalId = checkNotNull(personalId) { "Field personalId can not be empty!" },
 		records = mutableListOf(),
-		purchaseDate = purchaseDate,
+		purchaseDate = checkNotNull(purchaseDate) { "Field purchaseDate can not be empty!" },
 		ownedUntilDate = ownedUntilDate,
-		purchaseLocation = purchaseLocation,
-		estimatedKilometersPerYear = estimatedKilometersPerYear
+		purchaseLocation = checkNotNull(purchaseLocation) { "Field purchaseLocation can not be empty!" },
+		estimatedKilometersPerYear = checkNotNull(estimatedKilometersPerYear) { "Field estimatedKilometersPerYear can not be empty!" }
 	)
 
 }
