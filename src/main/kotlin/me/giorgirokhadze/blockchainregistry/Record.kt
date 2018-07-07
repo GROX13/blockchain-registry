@@ -15,6 +15,7 @@ data class Record(
 	var kilometres: Int,
 	var source: String,
 	var comments: String,
+	var nonce: Long,
 	var previousHash: String,
 	var hash: String?
 ) {
@@ -24,6 +25,7 @@ data class Record(
 		kilometres = kilometres,
 		source = source,
 		comments = comments,
+		nonce = nonce,
 		previousHash = previousHash,
 		hash = hash
 	)
@@ -35,6 +37,7 @@ data class RecordBean(
 	var kilometres: Int?,
 	var source: String?,
 	var comments: String?,
+	var nonce: Long?,
 	var previousHash: String?,
 	var hash: String?
 )

@@ -20,6 +20,7 @@ class BlockchainRegistryApplication {
 					kilometres = 0,
 					source = "Genesis",
 					comments = "Genesis",
+					nonce = 0,
 					previousHash = "0",
 					hash = "0"
 				)

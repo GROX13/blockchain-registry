@@ -3,6 +3,9 @@ package me.giorgirokhadze.blockchainregistry
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import java.util.*
+
+private const val DIFFICULTY = 5
 
 @RestController
 @RequestMapping("/record")
@@ -12,6 +15,14 @@ class RecordController(
 	private val recordHashingService: RecordHashingService
 ) {
 
+	private lateinit var prefix: String
+
+	init {
+		val chars = CharArray(DIFFICULTY)
+		Arrays.fill(chars, '0')
+		prefix = String(chars)
+	}
+
 	@RequestMapping("/create")
 	fun createRecord(@RequestBody createRecordBean: CreateRecordBean) {
 		val owner = ownerRepository.findByPersonalId(createRecordBean.ownerPersonalId)
@@ -19,9 +30,7 @@ class RecordController(
 		record = recordRepository.save(record)
 		owner.records.add(record)
 		ownerRepository.save(owner)
-		recordRepository.save(record.apply {
-			hash = recordHashingService.hash(id!!, date, kilometres, source, comments, previousHash)
-		})
+		recordRepository.save(populateData(record))
 	}
 
 	private fun RecordBean.toEntity(): Record {
@@ -32,9 +41,18 @@ class RecordController(
 			kilometres = checkNotNull(kilometres) { "Field kilometres can not be null!" },
 			source = checkNotNull(source) { "Field source can not be null!" },
 			comments = checkNotNull(comments) { "Field comments can not be null!" },
+			nonce = 0,
 			previousHash = previousHash,
 			hash = null
 		)
+	}
+
+	private fun populateData(record: Record): Record {
+		record.nonce = 0L
+		var hash = recordHashingService.hash(record)
+		while (!hash.startsWith(prefix)) hash = recordHashingService.hash(record.apply { nonce++ })
+		record.hash = hash
+		return record
 	}
 
 }

@@ -9,7 +9,7 @@ private const val SHA_256 = "SHA-256"
 @Service
 class RecordHashingService {
 
-	fun hash(id: Long, date: LocalDate, kilometres: Int, source: String, comments: String, previousHash: String) = MessageDigest
+	fun hash(id: Long, date: LocalDate, kilometres: Int, source: String, comments: String, nonce: Long, previousHash: String) = MessageDigest
 		.getInstance(SHA_256)
 		.digest(
 			StringBuilder()
@@ -18,11 +18,22 @@ class RecordHashingService {
 				.append(kilometres)
 				.append(source)
 				.append(comments)
+				.append(nonce)
 				.append(previousHash)
 				.toString()
 				.toByteArray()
 		)
 		.fold("") { str, it -> str + "%02x".format(it) }
 
+	fun hash(record: Record) =
+		hash(
+			checkNotNull(record.id) { "Received not existing record for calculating hash" },
+			record.date,
+			record.kilometres,
+			record.source,
+			record.comments,
+			record.nonce,
+			record.previousHash
+		)
 
 }
