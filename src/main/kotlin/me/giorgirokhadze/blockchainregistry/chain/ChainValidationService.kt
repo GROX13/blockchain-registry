@@ -1,11 +1,11 @@
-package me.giorgirokhadze.blockchainregistry
+package me.giorgirokhadze.blockchainregistry.chain
 
 import me.giorgirokhadze.blockchainregistry.record.Record
 import me.giorgirokhadze.blockchainregistry.record.RecordHashingService
 import org.springframework.stereotype.Service
 
 @Service
-class ValidationService(
+class ChainValidationService(
 	private val recordHashingService: RecordHashingService
 ) {
 

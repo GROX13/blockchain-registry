@@ -1,4 +1,4 @@
-package me.giorgirokhadze.blockchainregistry
+package me.giorgirokhadze.blockchainregistry.chain
 
 import me.giorgirokhadze.blockchainregistry.record.RecordRepository
 import org.springframework.web.bind.annotation.RequestMapping
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/chain")
 class ChainController(
 	private val recordRepository: RecordRepository,
-	private val validationService: ValidationService
+	private val validationService: ChainValidationService
 ) {
 
 	@RequestMapping("/list")
