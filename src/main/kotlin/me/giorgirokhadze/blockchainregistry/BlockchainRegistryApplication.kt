@@ -1,5 +1,7 @@
 package me.giorgirokhadze.blockchainregistry
 
+import me.giorgirokhadze.blockchainregistry.record.Record
+import me.giorgirokhadze.blockchainregistry.record.RecordRepository
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

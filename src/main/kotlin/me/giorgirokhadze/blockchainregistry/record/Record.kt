@@ -1,4 +1,4 @@
-package me.giorgirokhadze.blockchainregistry
+package me.giorgirokhadze.blockchainregistry.record
 
 import java.time.LocalDate
 import javax.persistence.Entity

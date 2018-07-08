@@ -1,4 +1,4 @@
-package me.giorgirokhadze.blockchainregistry
+package me.giorgirokhadze.blockchainregistry.owner
 
 import org.springframework.data.repository.CrudRepository
 

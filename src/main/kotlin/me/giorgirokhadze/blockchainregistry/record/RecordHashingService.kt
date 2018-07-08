@@ -1,4 +1,4 @@
-package me.giorgirokhadze.blockchainregistry
+package me.giorgirokhadze.blockchainregistry.record
 
 import org.springframework.stereotype.Service
 import java.security.MessageDigest

@@ -1,5 +1,7 @@
-package me.giorgirokhadze.blockchainregistry
+package me.giorgirokhadze.blockchainregistry.owner
 
+import me.giorgirokhadze.blockchainregistry.record.Record
+import me.giorgirokhadze.blockchainregistry.record.RecordBean
 import java.time.LocalDate
 import javax.persistence.*
 import javax.persistence.GenerationType.AUTO

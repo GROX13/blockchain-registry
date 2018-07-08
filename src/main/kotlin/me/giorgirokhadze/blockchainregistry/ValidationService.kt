@@ -1,5 +1,7 @@
 package me.giorgirokhadze.blockchainregistry
 
+import me.giorgirokhadze.blockchainregistry.record.Record
+import me.giorgirokhadze.blockchainregistry.record.RecordHashingService
 import org.springframework.stereotype.Service
 
 @Service
