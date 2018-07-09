@@ -84,3 +84,4 @@ fabric.properties
 blockchain-registry.iml
 
 node_modules/
+dist/
