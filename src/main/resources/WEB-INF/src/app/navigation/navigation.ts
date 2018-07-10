@@ -15,20 +15,12 @@ export const navigation = [
                 'url'      : '/apps/contacts'
             },
 			{
-				'id'       : 'owners',
-				'title'    : 'Owners',
-				'translate': 'NAV.OWNERS',
-				'type'     : 'item',
-				'icon'     : 'perm_identity',
-				'url'      : '/apps/contacts'
-			},
-			{
 				'id'       : 'records',
 				'title'    : 'Records',
 				'translate': 'NAV.RECORDS',
 				'type'     : 'item',
 				'icon'     : 'assignment',
-				'url'      : '/apps/contacts'
+				'url'      : '/apps/records'
 			}
         ]
     },

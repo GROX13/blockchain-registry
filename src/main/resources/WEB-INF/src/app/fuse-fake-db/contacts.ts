@@ -356,7 +356,7 @@ export class ContactsFakeDb
     public static user = [
         {
             'id'              : '5725a6802d10e277a0f35724',
-            'name'            : 'John Doe',
+            'name'            : 'Giorgi Rokhadze',
             'avatar'          : 'assets/images/avatars/profile.jpg',
             'starred'         : [
                 '5725a680ae1ae9a3c960d487',

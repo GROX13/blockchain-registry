@@ -7,12 +7,6 @@
         <!-- APP TITLE -->
         <div fxLayout="row" fxLayoutAlign="start center">
 
-            <button mat-icon-button class="sidenav-toggle mr-12"
-                    fuseMatSidenavToggler="contacts-main-sidenav"
-                    fxHide.gt-md>
-                <mat-icon>menu</mat-icon>
-            </button>
-
             <div class="logo" fxLayout="row" fxLayoutAlign="start center">
                 <mat-icon class="logo-icon mr-16" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">account_box</mat-icon>
                 <span class="logo-text h1" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">Contacts</span>
@@ -40,15 +34,6 @@
     <!-- / SELECTED BAR -->
 
     <mat-sidenav-container>
-
-        <!-- SIDENAV -->
-        <mat-sidenav class="sidenav" position="start" opened="true" mode="side"
-                     fuseMatSidenavHelper="contacts-main-sidenav" mat-is-locked-open="gt-sm">
-
-            <fuse-contacts-main-sidenav *fuseIfOnDom [@animate]="{value:'*'}"></fuse-contacts-main-sidenav>
-
-        </mat-sidenav>
-        <!-- / SIDENAV -->
 
         <!-- CENTER -->
         <div class="center p-24 pb-56 pr-sm-92" fusePerfectScrollbar>
