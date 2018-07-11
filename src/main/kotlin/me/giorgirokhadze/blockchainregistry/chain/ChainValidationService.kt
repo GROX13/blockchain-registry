@@ -17,6 +17,7 @@ class ChainValidationService(
 			}
 			if (record.hash != recordHashingService.hash(record)) return false
 			if (previous.hash != record.previousHash) return false
+			previous = record
 		}
 		return true
 	}

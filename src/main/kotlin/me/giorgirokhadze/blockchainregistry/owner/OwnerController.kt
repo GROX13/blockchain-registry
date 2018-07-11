@@ -19,7 +19,7 @@ class OwnerController(
 
 	@RequestMapping("/list")
 	fun listOwners() =
-		ownerRepository.findAll().map { it.toBean() }.toList()
+		OwnersDataBean(ownerRepository.findAll().map { it.toBean() }.toList())
 
 	private fun OwnerBean.toEntity() = Owner(
 		id = null,
@@ -28,8 +28,11 @@ class OwnerController(
 		purchaseDate = checkNotNull(purchaseDate) { "Field purchaseDate can not be empty!" },
 		ownedUntilDate = ownedUntilDate,
 		purchaseLocation = checkNotNull(purchaseLocation) { "Field purchaseLocation can not be empty!" },
-		estimatedKilometersPerYear = checkNotNull(estimatedKilometersPerYear) { "Field estimatedKilometersPerYear can not be empty!" }
+		estimatedKilometersPerYear = checkNotNull(estimatedKilometersPerYear) { "Field estimatedKilometersPerYear can not be empty!" },
+		firstName = checkNotNull(firstName) { "Field firstName can not be empty!" },
+		lastName = checkNotNull(lastName) { "Field lastName can not be empty!" }
 	)
 
 }
 
+data class OwnersDataBean(val data: List<OwnerBean>)

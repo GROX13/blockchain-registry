@@ -1,0 +1,89 @@
+<!-- DIALOG -->
+<md-dialog class="contact-dialog" aria-label="New Task">
+
+	<form name="contactForm" class="md-inline-form" novalidate>
+
+		<!-- DIALOG TOOLBAR -->
+		<md-toolbar class="md-accent" layout="column">
+
+			<!-- TOOLBAR TOP -->
+			<div class="md-toolbar-tools md-toolbar-tools-top" layout="row" layout-align="space-between center">
+				<span class="title">{{vm.title}}</span>
+				<md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close dialog" translate
+						   translate-attr-aria-label="RECORDS.CLOSE_DIALOG">
+					<md-icon md-font-icon="icon-close"></md-icon>
+				</md-button>
+			</div>
+			<!-- / TOOLBAR TOP -->
+
+		</md-toolbar>
+		<!-- / DIALOG TOOLBAR -->
+
+		<!-- DIALOG CONTENT -->
+		<md-dialog-content ms-scroll>
+
+			<div layout="row" class="md-block textarea-wrapper" layout-align="start start">
+				<md-icon md-font-icon="icon-account" class="name"></md-icon>
+				<md-input-container flex>
+					<label translate="RECORDS.NAME_REQUIRED">Owner</label>
+					<md-select ng-model="vm.record.ownerPersonalId">
+						<md-option ng-repeat="owner in vm.owners" value="{{owner.personalId}}">
+							{{owner.personalId}}
+						</md-option>
+					</md-select>
+				</md-input-container>
+			</div>
+
+			<div layout="row" class="md-block textarea-wrapper" layout-align="start start">
+				<md-datepicker class="birthday-input" ng-model="vm.record.date" md-placeholder="Check date"
+							   ng-required="true" flex>
+				</md-datepicker>
+			</div>
+
+			<div layout="row" class="md-block textarea-wrapper" layout-align="start start">
+				<md-icon md-font-icon="icon-car"></md-icon>
+				<md-input-container flex>
+					<input ng-model="vm.record.kilometers" type="text" placeholder="Kilometers">
+				</md-input-container>
+			</div>
+
+			<div layout="row" class="md-block textarea-wrapper" layout-align="start start">
+				<md-icon md-font-icon="icon-note"></md-icon>
+				<md-input-container flex>
+					<label>Source</label>
+					<textarea ng-model="vm.record.source" type="text" max-rows="4"></textarea>
+				</md-input-container>
+			</div>
+
+			<div layout="row" class="md-block textarea-wrapper" layout-align="start start">
+				<md-icon md-font-icon="icon-note"></md-icon>
+				<md-input-container flex>
+					<label>Comments</label>
+					<textarea ng-model="vm.record.comments" type="text" max-rows="4"></textarea>
+				</md-input-container>
+			</div>
+
+
+		</md-dialog-content>
+		<!-- / DIALOG CONTENT -->
+
+		<!-- DIALOG ACTIONS -->
+		<md-dialog-actions layout="row" layout-align="space-between center">
+			<div layout="row" layout-align="start center">
+
+				<md-button type="submit" ng-if="vm.newContact" ng-click="vm.addNewRecord()"
+						   class="send-button md-accent md-raised"
+						   ng-disabled="contactForm.$invalid || contactForm.$pristine || vm.disable"
+						   aria-label="Add Task" translate="RECORDS.ADD_RECORD"
+						   translate-attr-aria-label="RECORDS.ADD_RECORD">
+					ADD CONTACT
+				</md-button>
+
+			</div>
+		</md-dialog-actions>
+		<!-- / DIALOG ACTIONS -->
+
+	</form>
+
+</md-dialog>
+<!-- / DIALOG -->

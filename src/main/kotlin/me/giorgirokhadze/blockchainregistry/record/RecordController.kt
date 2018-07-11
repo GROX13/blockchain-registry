@@ -25,13 +25,13 @@ class RecordController(
 	}
 
 	@RequestMapping("/create")
-	fun createRecord(@RequestBody createRecordBean: CreateRecordBean) {
+	fun createRecord(@RequestBody createRecordBean: CreateRecordBean): RecordBean {
 		val owner = ownerRepository.findByPersonalId(createRecordBean.ownerPersonalId)
 		var record = createRecordBean.recordBean.toEntity()
 		record = recordRepository.save(record)
 		owner.records.add(record)
 		ownerRepository.save(owner)
-		recordRepository.save(populateData(record))
+		return recordRepository.save(populateData(record)).toBean()
 	}
 
 	private fun RecordBean.toEntity(): Record {

@@ -1,0 +1,82 @@
+<div id="records" class="page-layout simple left-sidenav inner-sidenav">
+
+	<!-- HEADER -->
+	<div class="header md-accent-bg" layout="row" layout-align="space-between center">
+
+		<!-- APP TITLE -->
+		<div layout="row" layout-align="start center">
+			<md-button class="md-icon-button sidenav-toggle" hide-gt-md ng-click="vm.toggleSidenav('sidenav')"
+					   aria-label="Toggle sidenav" translate translate-attr-aria-label="RECORDS.TOGGLE_SIDENAV">
+				<md-icon md-font-icon="icon-menu" class="icon"></md-icon>
+			</md-button>
+
+			<div class="logo" layout="row" layout-align="start center">
+                <span class="logo-icon">
+                    <md-icon md-font-icon="icon-account-box" class="s24"></md-icon>
+                </span>
+				<span class="logo-text" translate="RECORDS.RECORDS">Records</span>
+			</div>
+		</div>
+		<!-- / APP TITLE -->
+
+	</div>
+	<!-- / HEADER -->
+
+	<!-- CONTENT -->
+	<div class="content" md-background-bg layout="row" layout-align="start start">
+
+		<!-- MAIN -->
+		<div class="main scrollable" ms-scroll>
+
+			<div class="simple-table-container md-whiteframe-4dp">
+				<div class="table-title">
+					Records
+				</div>
+
+				<table class="simple" ms-responsive-table>
+					<thead>
+					<tr>
+						<th>Date</th>
+						<th>Source</th>
+						<th>Description</th>
+						<th>Kilometres</th>
+						<th>Nonce</th>
+						<th class="hide show-gt-lg">Previous hash</th>
+						<th class="hide show-gt-lg">Hash</th>
+					</tr>
+					</thead>
+
+					<tfoot>
+					<tr>
+						<td></td>
+					</tr>
+					</tfoot>
+
+					<tbody>
+					<tr ng-repeat="record in vm.records">
+						<td class="date">{{record.date}}</td>
+						<td class="source">{{record.source}}</td>
+						<td class="description">{{record.comments}}</td>
+						<td class="kilometres">{{record.kilometres}}</td>
+						<td class="nonce">{{record.nonce}}</td>
+						<td class="previous-hash hide show-gt-lg">{{record.previousHash}}</td>
+						<td class="hash hide show-gt-lg">{{record.hash}}</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+		<!-- / MAIN -->
+
+	</div>
+	<!-- / CONTENT -->
+
+	<!-- ADD RECORD BUTTON -->
+	<md-button class="md-fab md-accent md-icon-button" id="add-record-button" ng-click="vm.openRecordDialog($event)"
+			   aria-label="add contact" translate translate-attr-aria-label="RECORDS.ADD_RECORD">
+		<md-icon md-font-icon="icon-backburger"></md-icon>
+	</md-button>
+	<!-- / ADD RECORD BUTTON -->
+
+</div>

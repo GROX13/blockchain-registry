@@ -15,6 +15,8 @@ data class Owner(
 	var personalId: String,
 	@OneToMany
 	var records: MutableList<Record>,
+	var firstName: String,
+	var lastName: String,
 	var purchaseDate: LocalDate,
 	var ownedUntilDate: LocalDate?,
 	var purchaseLocation: String,
@@ -27,12 +29,16 @@ data class Owner(
 		purchaseDate = purchaseDate,
 		ownedUntilDate = ownedUntilDate,
 		purchaseLocation = purchaseLocation,
-		estimatedKilometersPerYear = estimatedKilometersPerYear
+		estimatedKilometersPerYear = estimatedKilometersPerYear,
+		firstName = firstName,
+		lastName = lastName
 	)
 
 }
 
 data class OwnerBean(
+	var firstName: String?,
+	var lastName: String?,
 	var personalId: String?,
 	var records: MutableList<RecordBean>?,
 	var purchaseDate: LocalDate?,
